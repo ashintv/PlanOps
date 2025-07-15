@@ -1,7 +1,11 @@
 "use client"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 import axios from "axios"
 import { useState } from "react"
 
+
+//TODO: replace with zod and use react-hook-form
 export default function RegisterEmployeePage() {
 	const [username, setUsername] = useState("")
 	const [email, setEmail] = useState("")
@@ -20,23 +24,26 @@ export default function RegisterEmployeePage() {
 	return (
 		<div className="flex flex-col items-center justify-center h-screen">
 			<h1>Register Employee</h1>
-			<form onSubmit={handleSubmit} className="flex flex-col gap-4">
-				<input
+			<form onSubmit={handleSubmit}>
+				<Input
 					type="text"
 					placeholder="Name"
 					onChange={(e) => setUsername(e.target.value)}
 				/>
-				<input
+
+				<Input
 					type="email"
 					placeholder="Email"
 					onChange={(e) => setEmail(e.target.value)}
 				/>
-				<input
+
+				<Input
 					type="password"
 					placeholder="Password"
 					onChange={(e) => setPassword(e.target.value)}
 				/>
-				<button type="submit">Register</button>
+
+				<Button type="submit">Register</Button>
 			</form>
 		</div>
 	)
